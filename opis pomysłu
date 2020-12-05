@@ -1,0 +1,68 @@
+W ramach projektu końcowego chcę przygotować aplikację, która będzie prezentowała warszawskie osiedla mieskaniowe. Aplikacja będzie służyła mi do mojej pracy zawodowej.
+Do tej pory  korzystam z pliku .xlsx. Plik zawiera wile kolumn. Część z nim to kolumny zawierające dane tekstowe, część liczbowe, są też formuły. Typowe osiedle zawiera takie pola:
+- nr. z Kompasu inwestycji, (int)
+- nr MPK, (string)
+- nr MPK przyłącza (string) 
+- nazwa osiedla, (string)
+- adres osiedla, (string)
+- numer działki, 
+- nazwa węzłe GPON (dzielnica), (string)
+- nazwa dewelopera, (string)
+- nazwa generalnego wykonawcy, (string)
+- ilość HP, (int)
+- ilość LU, (int)
+- przewidywany termin rozpoczęcia świadczenia usług 
+- data zasiedlenia (kwartał) (data)
+- rok wydania budżetu, (data)
+- konkurencja, (słownik),
+- cena lokalu, (float)
+- status, (string), 
+- status pomocniczy, (string),
+- zakres, (string),
+- data założenia karty projektu, (data)
+- data umowy, (data)
+- data zapytania FO, (data)
+- data oferty FO, (data)
+- data zlecenia DH, (data)
+- data dostępności LAN, (data)
+- data dostępności TV, (data)
+- data rozliczenia, (data)
+- rodzaj inwestycji, (string)
+- faktyczny koszt FO, (float)
+- faktyczny koszt kanalizacji, (float)
+- koszt budowy sieci wewnętrznej, (float)
+- koszt całkowity projektu, (float)
+- miesiąc wydania środków na el. bierne, (data)
+- kwota na el. bierne, (float)
+- miesiąc wydania środków na el. aktywne, (data)
+- kwota na el. aktywne, (float)
+- miesiąc wydania środków na zakres, (data)
+- kwota na zakres, (float)
+- miesiąc wydania środków na FO, (data)
+- kwota na FO, (float),
+- miesiąc wydania środków na kanalizację, (data)
+- kwota na kanalizację, (float)
+- miesiąc wydania środków na OLT, (data)
+- kwota na OLT, (float)
+- miesiąc wydania środków dla dewelopera, (data)
+- kwota dla dewelopera, (float)
+- osoba kontaktowa, (string)
+- tel. do osoby kontaktowej, (int)
+- mail do osoby kontaktowej, (int)
+
+Chciałbym przerzucić dane do SQL. strona głowna powinna zawierać listę wszystkich osiedli, wyświetlacjąc część danych: nazwa, adres, ilość HP, ilość usług, MPK, data uruchomienia usług, status. 
+Default to wyświetlanie osiedli o statusie "eksploatacja", "realiacja". Reszta ukryta z możliwością wyświetlenia na stronie głównej. Możliwość szczegółowego wglądu w osiedle.
+Wtedy dostępna reszta danych. Z tego poziomu możliwy link do strony Kompasu Inwestycji i strony dewelopera. Dostępny skan umowy, ew. innej dokumentacji. 
+Raportowanie z możliwością wyboru różnych pól (np. ile wydane na FO w 2020 roku).
+Dodawanie i edycja osiedli tylko przez osobę uprawnioną. Logowanie domenowe (aktualni pracownicy firmy). Jeden super user z prawem edycji i dodawania danych. Reszta tylko pogląd i generowanie raportów.
+Możliwość łączenia się z API innych aplikacji firmowych celem generowania numeru MPK. 
+Aplikacja powinna być dostępna poprzez WWW, zarówno w sieci lokalnej jak i przez Internet. 
+
+Funcjonalnności:
+- dodawanie osiedli
+- edycja osiedli
+- dodawanie deweloperów
+- dodawanie osób (kontaktów)
+- wysyłenie maili do zakładania MPK wraz z archiwizacją numeru RT tego maila
+- wysyłanie maili z info o rozliczeniu
+-

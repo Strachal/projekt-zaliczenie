@@ -1,0 +1,15 @@
+1. class Building (MPK, nr KI, nazwa, adres, ilość HP, ilość LU, status, data zasiedlenia)
+
+2. class Persons(deweloper, imię, nazwisko, stanowisko, telefon, email)
+
+3. class Date (data założenia, data zapytania FO, data oferty, data zlecenia, data uruchomienia, data rozliczenia)
+
+4. class Finances (kwota FO, kwota kanalizacja, kwota sieci wewnętrzne + daty wydania)
+
+5. class Raport (?)
+
+6. class Links (użyte w aplikacji linki)
+
+7. class ActionDirect (wysłanie maila ze zleceniem założenia MPK)
+
+
