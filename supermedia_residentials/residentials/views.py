@@ -3,7 +3,15 @@ from django.http import HttpResponse
 
 def main(request):
     # return HttpResponse("Strona Główna")
-    return render(request, 'index.html')
+    osiedle= {
+        'type': 'osiedle mieszkaniowe',
+        'name': 'Pogodne Skorosze',
+        'owner': 'MS'
+    }
+    return render(request, 'index.html', osiedle)
+
+
+
 
 def buildings(request):
     return HttpResponse("Tu będzie wyswietlana lista osiedli")

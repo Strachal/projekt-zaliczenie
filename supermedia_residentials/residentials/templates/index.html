@@ -1,13 +1,46 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Osiedla SUPERMEDIA</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<p>To jest strona prezentująca osiedla SUPERMEDIA</p>-->
+<!--    <h1>Osiedle:</h1>-->
+<!--    <p><strong>Imie:</strong> {{ type }}</p>-->
+<!--    <p><strong>Rasa:</strong> {{ name }}</p>-->
+<!--    <p><strong>Płeć:</strong> {{ owner }}</p>-->
+
+
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Osiedla SUPERMEDIA</title>
-</head>
-<body>
+<html>
+  <head>
+    {% block head %}
+      {% block style %}
+      <link rel="stylesheet" href="style.css" />
+    {% endblock %}
+      <title>{% block title %}{% endblock %} | Osiedla Supermedia |</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div id="content1">{% block content1 %} Logo + napis "Osiedla Supermedia {% endblock %}</div>
+    <div id="content2">{% block content2 %} Raport {% endblock %}</div>
+    <div id="content3">{% block content3 %} Załóż MPK {% endblock %}</div>
+    <div id="content4">{% block content4 %} Dodaj / Edytuj osiedle {% endblock %}</div>
+    <div id="content5">{% block content5 %} Dodaj / Edytuj dewelopera {% endblock %}</div>
+    <div id="content6">{% block content6 %} Dodaj / Edytuj kontakt {% endblock %}</div>
+    <div id="content7">{% block content7 %} Dodaj / Edytuj generalnego wykonawcę {% endblock %}</div>
+    <div id="content8">{% block content8 %} Szukaj {% endblock %}</div>
+    <div id="content9">{% block content9 %} Logowanie {% endblock %}</div>
 
-<p>To jest strona prezentująca osiedla SUPERMEDIA</p>
-
-
-</body>
+    <div id="footer">
+      {% block footer %}
+        © Copyright 2018 by <a href="http://...">Strachal Disaster Corporation</a>.
+      {% endblock %}
+    </div>
+  </body>
 </html>
