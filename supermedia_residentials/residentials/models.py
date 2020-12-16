@@ -149,13 +149,13 @@ class Links(models.Model):
 
 #klasa opisująca konkurencję osiedlową
 class Competitors(models.Model):
-    Opl = models.CharField(max_length=15)
-    Upc = models.CharField(max_length=15)
-    Vectra = models.CharField(max_length=15)
-    Jmdi = models.CharField(max_length=15)
-    MetroInternet = models.CharField(max_length=15)
-    Netia = models.CharField(max_length=15)
-    Other = models.CharField(max_length=15)
+    name = models.CharField(max_length=15)
+    # competitor2 = models.CharField(max_length=15)
+    # competitor3 = models.CharField(max_length=15)
+    # competitor4 = models.CharField(max_length=15)
+    # competitor5 = models.CharField(max_length=15)
+    # competitor6 = models.CharField(max_length=15)
+    # competitor7 = models.CharField(max_length=15)
 
 
 #klasa opisująca generalnego wykonawcę

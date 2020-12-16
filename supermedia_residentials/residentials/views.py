@@ -10,9 +10,6 @@ def main(request):
     }
     return render(request, 'index.html', osiedle)
 
-
-
-
 def buildings(request):
     return HttpResponse("Tu będzie wyswietlana lista osiedli")
 

@@ -153,7 +153,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Buildings',
             fields=[
-                ('PK_number', models.AutoField(primary_key=True, serialize=False)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('KI_number', models.IntegerField()),
                 ('MPK_number', models.CharField(max_length=10)),
                 ('MPK_number_sewerage', models.CharField(max_length=10)),

@@ -1,41 +1,32 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Osiedla SUPERMEDIA</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--<p>To jest strona prezentująca osiedla SUPERMEDIA</p>-->
-<!--    <h1>Osiedle:</h1>-->
-<!--    <p><strong>Imie:</strong> {{ type }}</p>-->
-<!--    <p><strong>Rasa:</strong> {{ name }}</p>-->
-<!--    <p><strong>Płeć:</strong> {{ owner }}</p>-->
-
-
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html>
   <head>
     {% block head %}
       {% block style %}
-      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="static/style.css" />
     {% endblock %}
       <title>{% block title %}{% endblock %} | Osiedla Supermedia |</title>
     {% endblock %}
   </head>
   <body>
-    <div id="content1">{% block content1 %} Logo + napis "Osiedla Supermedia {% endblock %}</div>
-    <div id="content2">{% block content2 %} Raport {% endblock %}</div>
-    <div id="content3">{% block content3 %} Załóż MPK {% endblock %}</div>
-    <div id="content4">{% block content4 %} Dodaj / Edytuj osiedle {% endblock %}</div>
-    <div id="content5">{% block content5 %} Dodaj / Edytuj dewelopera {% endblock %}</div>
-    <div id="content6">{% block content6 %} Dodaj / Edytuj kontakt {% endblock %}</div>
-    <div id="content7">{% block content7 %} Dodaj / Edytuj generalnego wykonawcę {% endblock %}</div>
-    <div id="content8">{% block content8 %} Szukaj {% endblock %}</div>
-    <div id="content9">{% block content9 %} Logowanie {% endblock %}</div>
+  <div style="width: 100%; background-color: blue">
+    <button style="display: inline; margin: 0.25rem" id="content1">{% block content1 %} <a href="http://supermedia.pl">
+      <img src="static/logoSM.png" alt="logoSM"><p>osiedla Supermedia</p></a> {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content2">{% block content2 %} Raport {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content3">{% block content3 %} Załóż MPK {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content4">{% block content4 %} Dodaj / Edytuj osiedle {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content5">{% block content5 %} Dodaj / Edytuj dewelopera {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content6">{% block content6 %} Dodaj / Edytuj kontakt {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content7">{% block content7 %} Dodaj / Edytuj generalnego wykonawcę {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content8">{% block content8 %} Szukaj {% endblock %}</button>
+    <button style="display: inline; margin: 0.25rem" id="content9">{% block content9 %} Logowanie {% endblock %}</button>
+  </div>
+
+  <div style="width: 100%; background-color: #ff0000">
+    <div  style="display: inline; margin: 20rem" id="content10">{% block content10%}txt1 {% endblock %}</div>
+    <div  style="display: inline; margin: 20rem" id="content11">{% block content11 %}txt2 {% endblock %}</div>
+  </div>
+
 
     <div id="footer">
       {% block footer %}
