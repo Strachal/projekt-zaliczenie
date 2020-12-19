@@ -84,7 +84,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='persons',
             name='deweloper_company',
-            field=models.ForeignKey(default='bd', on_delete=django.db.models.deletion.CASCADE, to='residentials.developer'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='residentials.developer'),
         ),
         migrations.AlterField(
             model_name='persons',
@@ -94,7 +94,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='persons',
             name='general_contractor',
-            field=models.ForeignKey(default='bd', on_delete=django.db.models.deletion.CASCADE, to='residentials.general'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='residentials.general'),
         ),
         migrations.AlterField(
             model_name='persons',

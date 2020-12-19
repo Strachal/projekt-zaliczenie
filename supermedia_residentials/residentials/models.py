@@ -46,7 +46,7 @@ class Buildings(models.Model):
     # director = models.ForeignKey(Person, related_name="movies_directed", on_delete=models.CASCADE)
     # actors = models.ManyToManyField(Person, related_name="movies_cast")
 
-    KI_number = models.IntegerField(default="0") # numer inwestycji z Kompasu Inwestycji, może służyć do wygenerowania linku do KI
+    KI_number = models.IntegerField(default=0) # numer inwestycji z Kompasu Inwestycji, może służyć do wygenerowania linku do KI
     MPK_number = models.CharField(max_length=10, default="bd") # unikatowy numer MPK osiedla
     MPK_number_sewerage = models.CharField(max_length=10, default="bd") # unikatowy numer MPK przyłącza
     building_name = models.CharField(max_length=255) # nazwa deweoperska osiela, jeśli nie ma to adres główny
@@ -54,8 +54,8 @@ class Buildings(models.Model):
     # adresów)
     parcel_number = models.CharField(max_length=255, default="bd") # numer działki i obrębu
     GPON_node_localisation = models.ForeignKey("GPON_node_list", on_delete=models.CASCADE) # lokalizacja na terenie Warszawy
-    quantity_HP = models.IntegerField(default="0") # ilość lokali mieszkalnych
-    quantity_LU = models.IntegerField(default="0") # ilość lokali użytkowych
+    quantity_HP = models.IntegerField(default=0) # ilość lokali mieszkalnych
+    quantity_LU = models.IntegerField(default=0) # ilość lokali użytkowych
     competitors = models.ManyToManyField("Competitors") # konkurencja na osiedlu
     estimated_budget_accept = models.IntegerField(choices=ACCEPT, default=0) # akceptacja kosztorysu
     flat_price = models.FloatField(default="0") # cena lokalu w plnach
@@ -63,18 +63,18 @@ class Buildings(models.Model):
     status = models.IntegerField(choices=STATUS, default=5) # handlowy status projektu
     services_provided = models.IntegerField(choices=SERVICES, default=1) # sposób świadczenia usług
     range_of_activity = models.ManyToManyField("Activities") # zakres budowy sieci
-    internal_net_property = models.IntegerField(choices=INTERNAL, default="7") # własność sieci wewnętrznych
+    internal_net_property = models.IntegerField(choices=INTERNAL, default=7) # własność sieci wewnętrznych
     remarks_of_MS = models.TextField(default="bd") # uwagi MS
     remarks_of_AK = models.TextField(default="bd") # uwagi AK
 
 
 # klasa opisująca osoby zaangażowane w projekt osiedlowy, zarówno ze strony dewelopera, generalnego wykonawcy jaki i SM
 class Persons(models.Model):
-    deweloper_company = models.ForeignKey("Developer", on_delete=models.CASCADE, default="bd") # nazwa firmy deweloperskiej
-    general_contractor = models.ForeignKey("General", on_delete=models.CASCADE, default="bd") # nazwa generalnego wykonawcy
+    deweloper_company = models.ForeignKey("Developer", on_delete=models.CASCADE, null=True) # nazwa firmy deweloperskiej
+    general_contractor = models.ForeignKey("General", on_delete=models.CASCADE, null=True) # nazwa generalnego wykonawcy
     first_last_name = models.CharField(max_length=40) # imie i nazwisko danej osoby
     job = models.CharField(max_length=20) # stanowisko danej osoby
-    phone = models.IntegerField(default="0") # telefon do danej osoby
+    phone = models.IntegerField(default=0) # telefon do danej osoby
     email = models.CharField(max_length=64, default="bd") # email do danej osoby
     SM_PM_initial = models.CharField(max_length=4, default="MS") # inicjały PM projektu po stronie SM
 
@@ -151,43 +151,21 @@ class Links(models.Model):
 
 #klasa opisująca konkurencję osiedlową
 class Competitors(models.Model):
-    name = models.CharField(max_length=15)
-    # competitor2 = models.CharField(max_length=15)
-    # competitor3 = models.CharField(max_length=15)
-    # competitor4 = models.CharField(max_length=15)
-    # competitor5 = models.CharField(max_length=15)
-    # competitor6 = models.CharField(max_length=15)
-    # competitor7 = models.CharField(max_length=15)
+    name = models.CharField(max_length=15, default="")
+
 
 
 #klasa opisująca generalnego wykonawcę
 class General(models.Model):
-    name = models.CharField(max_length=64, default="bd")
+    name = models.CharField(max_length=64, default="")
 
 # klasa opisująca dewelopera
 class Developer(models.Model):
-    name = models.CharField(max_length=64, default="bd")
+    name = models.CharField(max_length=64, default="")
 
 # klasa opisująca węzeł Gpon
 class GPON_node_list(models.Model):
     pass
 
 class Activities(models.Model):
-    rg6_100_percent = models.CharField(max_length=15)
-    rg6_50_percent = models.CharField(max_length=15)
-    rg6_30_percent = models.CharField(max_length=15)
-    rg6_33_percent = models.CharField(max_length=15)
-    backbone_ftth = models.CharField(max_length=15)
-    backbone_lan = models.CharField(max_length=15)
-    backbone_catv = models.CharField(max_length=15)
-    connection = models.CharField(max_length=15)
-    ftth_100_percent = models.CharField(max_length=15)
-    utp_100_percent = models.CharField(max_length=15)
-    rg6_100_percent = models.CharField(max_length=15)
-    sewerage = models.CharField(max_length=15)
-    money_to_deweloper = models.CharField(max_length=15)
-    ftth_reserves = models.CharField(max_length=15)
-    mast_radio = models.CharField(max_length=15)
-    utp_reserves_50_percent = models.CharField(max_length=15)
-    rg6_zit_100_percent = models.CharField(max_length=15)
-    zit = models.CharField(max_length=15)
+    scope = models.CharField(max_length=30, default="")
