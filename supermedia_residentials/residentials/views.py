@@ -3,7 +3,6 @@ from django.http import HttpResponse
 
 
 def main(request):
-    # return HttpResponse("Strona Główna")
     osiedle= {
         'type': 'osiedle mieszkaniowe',
         'name': 'Pogodne Skorosze',
@@ -18,7 +17,7 @@ def details(request):
     return HttpResponse("Szczegóły osiedla")
 
 def raport(request):
-    return HttpResponse("Raport")
+    return render(request, 'raport.html')
 
 def add_building(request):
     return HttpResponse("Tutaj będziemy dodawać osiedla")
