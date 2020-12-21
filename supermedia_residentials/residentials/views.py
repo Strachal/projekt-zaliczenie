@@ -1,14 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Buildings
 
 
 def main(request):
-    osiedle= {
-        'type': 'osiedle mieszkaniowe',
-        'name': 'Pogodne Skorosze',
-        'owner': 'MS'
-    }
-    return render(request, 'index.html', osiedle)
+    list_all_buildings = Buildings.objects.all()
+    return render(request, 'index.html', {"list_complete": list_all_buildings})
 
 def buildings(request):
     return HttpResponse("Tu będzie wyswietlana lista osiedli")

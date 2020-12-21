@@ -15,13 +15,20 @@
       <img src="static/logoSM.png" alt="logoSM"></a> <p>Osiedla Supermedia</p>{% endblock %}</button>
     <button class="btn" id="content2">{% block content2 %} <a href="raport.html">Raport</a>{% endblock %}</button>
     <button class="btn" id="content3">{% block content3 %} <a href="#">Załóż MPK</a>{% endblock %}</button>
-    <button class="btn" id="content8">{% block content8 %} <a href="#">Szukaj</a> {% endblock %}</button>
-    <button class="btn" id="content9">{% block content9 %} <a href="#">Logowanie</a>{% endblock %}</button>
+    <button class="btn" id="content4">{% block content4 %} <a href="#">Szukaj</a> {% endblock %}</button>
+    <button class="btn" id="content5">{% block content5 %} <a href="#">Logowanie</a>{% endblock %}</button>
     </header>
 
     <div class="list">
-        <div  id="content10">{% block content10%} tu będzie znajdowała się lista osiedli, z możliwością filtrowania {% endblock %}</div>
-        <div  id="content11">{% block content11 %} tu będzie znajdował się widok szczegółowy danego osiedla {% endblock %}</>
+        <div  id="content6">
+        {% block content6%}
+          {% for building in list_all_buildings %}
+            <p> {{ building.building_name }} </p>
+            <p> {{ building.building_adres }} </p>
+          {% endfor %}
+        {% endblock %}</div>
+
+        <div  id="content7">{% block content7 %} tu będzie znajdował się widok szczegółowy danego osiedla {% endblock %}</>
     </div>
 
     <footer class="footer">
