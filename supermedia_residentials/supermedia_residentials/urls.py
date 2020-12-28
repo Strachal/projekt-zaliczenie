@@ -29,4 +29,5 @@ urlpatterns = [
     path('add_building', views.add_building),
     path('finances', views.finances),
     path('all_date', views.all_date),
+    path('showlist_years', views.showlist_years),
 ]

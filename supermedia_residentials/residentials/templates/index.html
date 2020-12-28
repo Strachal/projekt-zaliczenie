@@ -20,15 +20,40 @@
     </header>
 
     <div class="list">
-        <div  id="content6">
-        {% block content6%}
-          {% for building in list_all_buildings %}
-            <p> {{ building.building_name }} </p>
-            <p> {{ building.building_adres }} </p>
+        <div id="content6">
+
+        <div class="filters">
+          <select>
+            <option value="2020">2020</option>
+          </select>
+        </div>
+        {% block content6 %}
+          {% for building in list_complete %}
+          <div class="building" data-status="{{ building.building_name }}">
+            <p> {{ building.building_name }}
+                {{ building.building_adres }}
+                {{ building.quantity_HP }}
+                {{ building.quantity_LU }}
+                {{ building.GPON_node_localisation }}
+                {{ building.year_Launch_services }}</p>
+          </div>
+
           {% endfor %}
         {% endblock %}</div>
 
-        <div  id="content7">{% block content7 %} tu będzie znajdował się widok szczegółowy danego osiedla {% endblock %}</>
+        <div id="content7">{% block content7 %} tu będzie znajdował się widok szczegółowy danego osiedla {% endblock %}</>
+
+    </div>
+
+    <div class="sum">
+        {% block content %}
+<!--        <p><b>Rok: </b>>-->
+<!--            <select name="select_year" class="form-control">-->
+<!--                <option value="1">2019</option>-->
+<!--                <option value="2">2020</option>-->
+<!--            </select>-->
+<!--        </p>-->
+        {% endblock %}
     </div>
 
     <footer class="footer">

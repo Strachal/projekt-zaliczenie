@@ -67,6 +67,9 @@ class Buildings(models.Model):
     remarks_of_MS = models.TextField(null=True) # uwagi MS
     remarks_of_AK = models.TextField(null=True) # uwagi AK
 
+    def __str__(self):
+        return self.building_name
+
 
 # klasa opisująca osoby zaangażowane w projekt osiedlowy, zarówno ze strony dewelopera, generalnego wykonawcy jaki i SM
 class Persons(models.Model):
@@ -165,7 +168,7 @@ class Developer(models.Model):
 
 # klasa opisująca węzeł Gpon
 class GPON_node_list(models.Model):
-    pass
+    localisation = models.CharField(max_length=64, default="")
 
 class Activities(models.Model):
     scope = models.CharField(max_length=30, default="")

@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "index.html" %}
 
-</body>
-</html>
+
+
+{% block content7 %}
+          {% for building in list_detail %}
+            <p> {{ building.building_name }}
+                {{ building.building_adres }}
+                {{ building.quantity_HP }}
+                {{ building.quantity_LU }}
+                {{ building.GPON_node_localisation }}
+                {{ building.year_Launch_services }}</p>
+
+
+          {% endfor %}
+{% endblock %}
+
