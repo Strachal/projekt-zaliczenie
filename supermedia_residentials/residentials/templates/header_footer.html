@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+      <link rel="stylesheet" href="static/style.css" />
+
+      <title>| Osiedla Supermedia | </title>
+
+  </head>
+  <body>
+
+    <header class="header">
+    <button id="content1"><a href="http://supermedia.pl">
+        <img src="static/logoSM.png" alt="logoSM"></a></button>
+    <button class="btn" id="content2"><a href="/">Osiedle Supermedia</a></button>
+    <button class="btn" id="content3"><a href="raport">Raport</a></button>
+    <button class="btn" id="content4"> <a href="add_mpk">Załóż MPK</a></button>
+    <button class="btn" id="content5"> <a href="search">Szukaj</a> </button>
+    <button class="btn" id="content6"><a href="login">Logowanie</a></button>
+    <button class="btn" id="content7"><a href="add_building">Dodaj osiedle</a></button>
+    </header>
+
+    {% block template %}
+
+    dupa
+
+    {% endblock %}
+
+
+
+
+
+
+    <footer class="footer">
+     {% block footer %} © Copyright 2020 by <a href="http://...">Strachal Disaster Corporation</a></p>
+     {% endblock %}
+    </footer>
+
+  </body>
+</html>

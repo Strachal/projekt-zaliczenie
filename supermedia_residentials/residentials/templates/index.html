@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    {% block head %}
-      {% block style %}
-      <link rel="stylesheet" href="static/style.css" />
-    {% endblock %}
-      <title>{% block title %}| Osiedla Supermedia | {% endblock %} </title>
-    {% endblock %}
-  </head>
-  <body>
 
-    <header class="header">
-    <button id="content1">{% block content1 %} <a href="http://supermedia.pl">
-      <img src="static/logoSM.png" alt="logoSM"></a> <p>Osiedla Supermedia</p>{% endblock %}</button>
-    <button class="btn" id="content2">{% block content2 %} <a href="raport.html">Raport</a>{% endblock %}</button>
-    <button class="btn" id="content3">{% block content3 %} <a href="#">Załóż MPK</a>{% endblock %}</button>
-    <button class="btn" id="content4">{% block content4 %} <a href="#">Szukaj</a> {% endblock %}</button>
-    <button class="btn" id="content5">{% block content5 %} <a href="#">Logowanie</a>{% endblock %}</button>
-    </header>
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--  <head>-->
+
+<!--      <link rel="stylesheet" href="static/style.css" />-->
+
+<!--      <title>| Osiedla Supermedia | </title>-->
+
+<!--  </head>-->
+<!--  <body>-->
+
+<!--    <header class="header">-->
+<!--    <button id="content1"><a href="http://supermedia.pl">-->
+<!--        <img src="static/logoSM.png" alt="logoSM"></a> <p>Osiedla Supermedia</p></button>-->
+<!--    <button class="btn" id="content2"><a href="raport.html">Raport</a></button>-->
+<!--    <button class="btn" id="content3"> <a href="#">Załóż MPK</a></button>-->
+<!--    <button class="btn" id="content4"> <a href="#">Szukaj</a> </button>-->
+<!--    <button class="btn" id="content5"><a href="#">Logowanie</a></button>-->
+<!--    </header>-->
+{% extends "header_footer.html" %}
+{% block template %}
 
     <div class="list">
         <div id="content6">
@@ -30,7 +32,7 @@
         {% block content6 %}
           {% for building in list_complete %}
           <div class="building" data-status="{{ building.building_name }}">
-            <p> {{ building.building_name }}
+            <p> {{ forloop.counter }} - {{ building.building_name }}
                 {{ building.building_adres }}
                 {{ building.quantity_HP }}
                 {{ building.quantity_LU }}
@@ -47,19 +49,15 @@
 
     <div class="sum">
         {% block content %}
-<!--        <p><b>Rok: </b>>-->
-<!--            <select name="select_year" class="form-control">-->
-<!--                <option value="1">2019</option>-->
-<!--                <option value="2">2020</option>-->
-<!--            </select>-->
-<!--        </p>-->
+
         {% endblock %}
     </div>
+{% endblock %}
 
-    <footer class="footer">
-     {% block footer %} © Copyright 2020 by <a href="http://...">Strachal Disaster Corporation</a></p>
-     {% endblock %}
-    </footer>
+<!--    <footer class="footer">-->
+<!--     {% block footer %} © Copyright 2020 by <a href="http://...">Strachal Disaster Corporation</a></p>-->
+<!--     {% endblock %}-->
+<!--    </footer>-->
 
-  </body>
-</html>
+<!--  </body>-->
+<!--</html>-->
