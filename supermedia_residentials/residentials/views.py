@@ -44,9 +44,10 @@ def add_mpk(request):
 def add_building(request):
     form = BuildingForm(request.POST or None)
     if form.is_valid():
-        form.save()
-        ctx = {
-            'form': form
+        form.save(commit=True)
+        form = BuildingForm
+    ctx = {
+        'form': form
         }
     return render(request, 'add_building.html', ctx)
 

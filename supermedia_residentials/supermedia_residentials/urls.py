@@ -21,6 +21,7 @@ from residentials import views
 from residentials.views import add_building
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main),
