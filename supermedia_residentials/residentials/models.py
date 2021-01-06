@@ -14,9 +14,9 @@ class Buildings(models.Model):
 
     ACCEPT = [
         (0, "puste"),
-        (1, "yes"),
-        (2, "no"),
-        (3, "in progress")
+        (1, "tak"),
+        (2, "nie"),
+        (3, "w trakcie")
     ]
 
     SERVICES = [
@@ -47,28 +47,30 @@ class Buildings(models.Model):
     # actors = models.ManyToManyField(Person, related_name="movies_cast")
 
     KI_number = models.IntegerField(null=True) # numer inwestycji z Kompasu Inwestycji, może służyć do wygenerowania linku do KI
-    MPK_number = models.CharField(max_length=10, null=True) # unikatowy numer MPK osiedla
-    MPK_number_sewerage = models.CharField(max_length=10, null=True) # unikatowy numer MPK przyłącza
     building_name = models.CharField(max_length=255) # nazwa deweoperska osiela, jeśli nie ma to adres główny
-    building_adres = models.CharField(max_length=255) # adres osiedla (może być kilka
-    # adresów)
-    parcel_number = models.CharField(max_length=255, null=True) # numer działki i obrębu
+    building_adres = models.CharField(max_length=255) # adres osiedla (może być kilka adresów)
     GPON_node_localisation = models.ForeignKey("GPON_node_list", on_delete=models.CASCADE, null=True) # lokalizacja na terenie Warszawy
     quantity_HP = models.IntegerField(default=0) # ilość lokali mieszkalnych
     quantity_LU = models.IntegerField(default=0) # ilość lokali użytkowych
-    competitors = models.ManyToManyField("Competitors") # konkurencja na osiedlu
-    estimated_budget_accept = models.IntegerField(choices=ACCEPT, null=True) # akceptacja kosztorysu
+    competitors = models.ForeignKey("Competitors", on_delete=models.CASCADE, default="bd", null=True) # konkurencja na osiedlu
+    developer = models.ForeignKey("Developer", on_delete=models.CASCADE, null=True) # deweloper osiedla
+    year_Launch_services = models.IntegerField(null=True)  # roku budżetowy danego osiedla
+    kind_of_inhabitation = models.IntegerField(choices=INHABIT, default=3, null=True)  # status zasiedlenia w trakcie budowy sieci
+    estimated_budget_accept = models.IntegerField(choices=ACCEPT, default=0, null=True) # akceptacja kosztorysu
     flat_price = models.FloatField(null=True) # cena lokalu w plnach
-    kind_of_inhabitation = models.IntegerField(choices=INHABIT, default=3, null=True) # status zasiedlenia w trakcie budowy sieci
     status = models.IntegerField(choices=STATUS, default=5) # handlowy status projektu
     services_provided = models.IntegerField(choices=SERVICES, default=1) # sposób świadczenia usług
-    range_of_activity = models.ManyToManyField("Activities") # zakres budowy sieci
+    MPK_number = models.CharField(max_length=10, default="brak MPK", null=True)  # unikatowy numer MPK osiedla
+    MPK_number_sewerage = models.CharField(max_length=10, default="brak MPK", null=True)  # unikatowy numer MPK przyłącza
+    range_of_activity = models.ManyToManyField("Activities", null=True) # zakres budowy sieci
     internal_net_property = models.IntegerField(choices=INTERNAL, default=7) # własność sieci wewnętrznych
     remarks_of_MS = models.TextField(null=True) # uwagi MS
     remarks_of_AK = models.TextField(null=True) # uwagi AK
 
     def __str__(self):
         return self.building_name
+        return self.building.status
+        return self.building.estimated_budget_accept
 
 
 # klasa opisująca osoby zaangażowane w projekt osiedlowy, zarówno ze strony dewelopera, generalnego wykonawcy jaki i SM
@@ -92,7 +94,6 @@ class AllDate(models.Model):
     ]
 
     date_Launch_services = models.DateField(null=True) # dniowa data uruchomienia uslug
-    year_Launch_services = models.DateField(null=True) # roku budżetowy danego osiedla
     month_Launch_services = models.DateField(null=True) # miesiąc uruchomienia osiedla
     quarter_Launch_services = models.IntegerField(choices=QUARTER, null=True) # kwartał uruchomienia osiedla
     date_card_project = models.DateField(null=True) # data założęnia projektu w SMP
@@ -156,19 +157,37 @@ class Links(models.Model):
 class Competitors(models.Model):
     name = models.CharField(max_length=15, default="")
 
+    def __str__(self):
+        return str(self.name)
+
 
 
 #klasa opisująca generalnego wykonawcę
 class General(models.Model):
     name = models.CharField(max_length=64, default="")
 
+    def __str__(self):
+        return str(self.name)
+
 # klasa opisująca dewelopera
 class Developer(models.Model):
     name = models.CharField(max_length=64, default="")
+
+    def __str__(self):
+        return str(self.name)
+
 
 # klasa opisująca węzeł Gpon
 class GPON_node_list(models.Model):
     localisation = models.CharField(max_length=64, default="")
 
+    def __str__(self):
+        return str(self.localisation)
+
+
 class Activities(models.Model):
     scope = models.CharField(max_length=30, default="")
+
+    def __str__(self):
+        return str(self.scope)
+

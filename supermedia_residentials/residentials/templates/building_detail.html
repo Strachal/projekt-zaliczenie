@@ -1,17 +1,12 @@
-{% extends "index.html" %}
+{% extends "header_footer.html" %}
 
 
 
-{% block content7 %}
-          {% for building in list_detail %}
-            <p> {{ building.building_name }}
-                {{ building.building_adres }}
-                {{ building.quantity_HP }}
-                {{ building.quantity_LU }}
-                {{ building.GPON_node_localisation }}
-                {{ building.year_Launch_services }}</p>
+{% block template %}
+
+<p>Szczegóły osiedla</p>
 
 
-          {% endfor %}
+
 {% endblock %}
 

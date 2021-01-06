@@ -3,9 +3,11 @@
 
 {% block template %}
     <form method="POST"> {% csrf_token %}
-        {{ form.as_p }}
         <input type="submit" value="Zapisz"/>
-
+        <p>------------------</p>
+        {{ form.as_p }}
+         <p>------------------</p>
+        <input type="submit" value="Zapisz"/>
     </form>
 
 {% endblock %}

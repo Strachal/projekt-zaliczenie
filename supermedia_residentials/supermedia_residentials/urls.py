@@ -15,25 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
-
 from residentials import views
-from residentials.views import add_building
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main),
-    path('buildings', views.buildings),
-    path('details', views.details),
-    path('raport', views.raport),
-    path('add_building', views.add_building),
-    path('finances', views.finances),
-    path('all_date', views.all_date),
-    path('showlist_years', views.showlist_years),
-    path('add_building', views.add_building),
-    path('login', views.login),
-    path('search', views.search),
-    path('add_mpk', views.add_mpk),
+    path('', views.main),  # widok główny
+    # path('buildings', views.buildings),
+    path('building_detail', views.details),
+    path('raport', views.raport), # widok raportu
+    path('add_building', views.add_building), # widok z formularzem dodawania osiedla
+    # path('finances', views.finances),
+    # path('all_date', views.all_date),
+    # path('showlist_years', views.showlist_years),
+    path('login', views.login), # widok logowania
+    path('search', views.search), # widok strony z wyszukiwaniem
+    path('add_mpk', views.add_mpk), # widok generatora email do zlecenia MPK
 ]

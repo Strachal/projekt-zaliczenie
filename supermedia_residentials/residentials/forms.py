@@ -5,14 +5,17 @@ from .models import Buildings
 class BuildingForm(forms.ModelForm):
     class Meta:
         model = Buildings
-        fields = [
-            "KI_number",
-            "building_name",
-            "building_adres",
-            "GPON_node_localisation",
-            "quantity_HP",
-            "quantity_LU",
-            "kind_of_inhabitation",
-            "status",
-            "remarks_of_MS"
-        ]
+        fields = "__all__"
+        #     {
+        #     "KI_number": "numer KI",
+        #     "building_name": "nazwa osiedla",
+        #     "building_adres": "adres osiedla",
+        #     "GPON_node_localisation": "węzeł GPON",
+        #     "quantity_HP": "ilość HP",
+        #     "quantity_LU": "ilość LU",
+        #     "kind_of_inhabitation": "status zasiedlenia",
+        #     "year_Launch_services": "rok budżetowy",
+        #     "status": "status",
+        #     "developer": "deweloper",
+        #     "remarks_of_MS": "uwagi MS",
+        # }

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import Buildings
 from .forms import BuildingForm
 
-
+# funkcja wyświetlająca listę osiedli na stronie głównej
 def main(request):
     list_complete = Buildings.objects.all()
     return render(request, 'index.html', {"list_complete": list_complete})
@@ -11,12 +11,12 @@ def main(request):
 def showlist_years(request):
     return render(request, 'index.html')
 
-def buildings(request):
-    return HttpResponse("Tu będzie wyswietlana lista osiedli")
+# def buildings(request):
+#     return HttpResponse("Tu będzie wyswietlana lista osiedli")
 
 def details(request):
 
-    list_detail = Buildings.objects.filter()
+    list_detail = Buildings.objects.all()
 
     return render(request, 'building_detail.html', {"list_detail": list_detail})
 
@@ -50,6 +50,9 @@ def add_building(request):
         'form': form
         }
     return render(request, 'add_building.html', ctx)
+
+def sum_hp(requet):
+    return sum(main(quantity_HP))
 
 
 

@@ -1,63 +1,75 @@
 
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--  <head>-->
-
-<!--      <link rel="stylesheet" href="static/style.css" />-->
-
-<!--      <title>| Osiedla Supermedia | </title>-->
-
-<!--  </head>-->
-<!--  <body>-->
-
-<!--    <header class="header">-->
-<!--    <button id="content1"><a href="http://supermedia.pl">-->
-<!--        <img src="static/logoSM.png" alt="logoSM"></a> <p>Osiedla Supermedia</p></button>-->
-<!--    <button class="btn" id="content2"><a href="raport.html">Raport</a></button>-->
-<!--    <button class="btn" id="content3"> <a href="#">Załóż MPK</a></button>-->
-<!--    <button class="btn" id="content4"> <a href="#">Szukaj</a> </button>-->
-<!--    <button class="btn" id="content5"><a href="#">Logowanie</a></button>-->
-<!--    </header>-->
 {% extends "header_footer.html" %}
 {% block template %}
 
-    <div class="list">
-        <div id="content6">
 
-        <div class="filters">
+<div class="col-12 col-xl-9">
+    <div class="list_titles"><p>tu znajdą sie tytuły wyświetlanych kolumn listy osiedli</p></div>
+    <div class="filters">
           <select>
-            <option value="2020">2020</option>
+            <option selected disable="true">rok</option>
+              {% for buiding in list_complete %}
+              <option>{{ building.year_Launch_services }}</option>
+              {% endfor%}
           </select>
+          <select>
+            <option selected disable="true">deweloper</option>
+              {% for buiding in list_complete %}
+              <option>{{ building.developer }}</option>
+              {% endfor%}
+          </select>
+                  <select>
+            <option selected disable="true">status</option>
+              {% for buiding in list_complete %}
+              <option>{{ building.developer }}</option>
+              {% endfor%}
+          </select>
+
+                  <select>
+            <option selected disable="true">kosztorys</option>
+              {% for buiding in list_complete %}
+              <option>{{ building.developer }}</option>
+              {% endfor%}
+          </select>
+
+
         </div>
         {% block content6 %}
           {% for building in list_complete %}
           <div class="building" data-status="{{ building.building_name }}">
-            <p> {{ forloop.counter }} - {{ building.building_name }}
-                {{ building.building_adres }}
-                {{ building.quantity_HP }}
-                {{ building.quantity_LU }}
-                {{ building.GPON_node_localisation }}
-                {{ building.year_Launch_services }}</p>
+            <p> {{ forloop.counter }} | {{ building.building_name }} |
+                {{ building.building_adres }} |
+                {{ building.quantity_HP }} |
+                {{ building.quantity_LU }} |
+                {{ building.GPON_node_localisation }} |
+                 {{ building.year_Launch_services }} |
+                {{ building.status }} |
+                {{ estimated_budget_accept }} |
+                {{ building.kind_of_inhabitation}} |
+                {{ building.services_provided}} |
+                {{ building.developer}} |
+                {{ building.MPK_number}} |
+
+            <button>wyświetl szczegóły osiedla</button>
+            <button>edytuj szczegóły osiedla</button>
+            </p>
           </div>
 
           {% endfor %}
-        {% endblock %}</div>
-
-        <div id="content7">{% block content7 %} tu będzie znajdował się widok szczegółowy danego osiedla {% endblock %}</>
-
-    </div>
-
+        {% endblock %}
     <div class="sum">
         {% block content %}
-
+        <p>tu będzie wyświetlana suma HP i LU </p>
         {% endblock %}
     </div>
+</div>
+
+<div class="col-12 col-xl-3">
+    {% block content7 %} <img src="static/malbork.jpeg" alt="osiedleSM">
+    <p>kliknij w osiedle po lewej stronie a wyświetlony zostanie widok szczegółowy</p> {% endblock %}
+</div>
+
+
+
 {% endblock %}
 
-<!--    <footer class="footer">-->
-<!--     {% block footer %} © Copyright 2020 by <a href="http://...">Strachal Disaster Corporation</a></p>-->
-<!--     {% endblock %}-->
-<!--    </footer>-->
-
-<!--  </body>-->
-<!--</html>-->
