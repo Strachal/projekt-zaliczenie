@@ -2,5 +2,22 @@
 
 {% block template %}
 
-<p>Raport<p>
+<table border="1">
+<tr>
+    <th>id</th>
+    <th>nazwa osiedla</th>
+    <th>adres osiedla</th>
+</tr>
+
+{% for building in Buildings %}
+<tr>
+    <td>{{ building.id }}</td>
+    <td>{{ building.building_name }}</td>
+    <td>{{ building.building_adres }}</td>
+    <td> <a href="edit_building/{{ building.id }}"><button >edytuj dane</button></a></td>
+</tr>
+{% endfor %}
+
+</table>
+
 {% endblock %}

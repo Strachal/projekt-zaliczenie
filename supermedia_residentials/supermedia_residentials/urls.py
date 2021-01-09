@@ -22,13 +22,11 @@ from residentials import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main),  # widok główny
-    # path('buildings', views.buildings),
-    path('building_detail', views.details),
+    path("filters", views.filter), # filtr na stronie głównej
     path('raport', views.raport), # widok raportu
+    path('edit_building/<int:id>', views.edit_buliding), # widok edycji
+    path("update/<int:id>", views.save_edited_building), # widok zapisu edycji
     path('add_building', views.add_building), # widok z formularzem dodawania osiedla
-    # path('finances', views.finances),
-    # path('all_date', views.all_date),
-    # path('showlist_years', views.showlist_years),
     path('login', views.login), # widok logowania
     path('search', views.search), # widok strony z wyszukiwaniem
     path('add_mpk', views.add_mpk), # widok generatora email do zlecenia MPK

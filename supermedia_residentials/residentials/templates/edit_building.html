@@ -2,11 +2,20 @@
 
 {% block template %}
 
+<form method="POST" action="/update/{{ Buildings.id }}">
+   {% csrf_token %}
+
 <table border="1">
 <tr>
    <td>id</td>
-   <td><input type="text" name="id" value="{{ Buildings.id }}"></td>
+   <td><input type="text" name="id" value="{{ Buildings.id }}" readonly></td>
 </tr>
+
+   <tr>
+   <td>id</td>
+   <td><input type="text" name="KI_number" id="KI_number" value="{{ Buildings.KI_number }}"></td>
+</tr>
+
 <tr>
    <td>nazwa osiedla</td>
    <td><input type="text" name="building_name" value="{{ Buildings.building_name }}"></td>
@@ -100,5 +109,29 @@
 </tr>
 </table>
 
-{% endblock %}
+   {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ field.name }} {{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
 
+<input type="submit" value="zapisz"/>
+
+   {% if messages %}
+   {% for update in messages %}
+   {{ update }}
+   {% endfor %}
+   {% endif %}
+
+</form>
+
+{% endblock %}

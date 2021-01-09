@@ -1,0 +1,14 @@
+{% extends "header_footer.html" %}
+
+{% block filter %}
+
+    <form method="get">
+        {{ filter.form }}
+        <button type="submit">filtruj</button>
+     {% for obj in filter.qs %}
+        {{ obj.name }} - {{ obj.price }}<br />
+    {% endfor %}
+
+    </form>
+
+{% endblock %}

@@ -1,5 +1,4 @@
 from django import forms
-
 from .models import Buildings
 
 class BuildingForm(forms.ModelForm):
@@ -19,3 +18,8 @@ class BuildingForm(forms.ModelForm):
         #     "developer": "deweloper",
         #     "remarks_of_MS": "uwagi MS",
         # }
+
+class EditBuildingForm(forms.ModelForm):
+    class Meta:
+        model = Buildings
+        fields = "__all__"

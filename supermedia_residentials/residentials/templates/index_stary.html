@@ -1,0 +1,85 @@
+
+{% extends "header_footer.html" %}
+{% block template %}
+
+<div class="col-12 col-xl-9">
+    <div class="list_titles"><p>Numer KI | Nazwa osiedla | Adres osiedla | Ilość HP | Ilość LU | Dzielnica | Rok |
+        Status | Akceptacja budżetu |</p></div>
+
+    <form method="get">
+        {{ filter.form }}
+        <button type="submit">filtruj</button>
+     {% for obj in filter.qs %}
+        {{ obj.name }} - ${{ obj.price }}<br />
+    {% endfor %}
+
+    </form>
+
+
+<!--    <div class="filters">-->
+<!--          <select>-->
+<!--            <option selected disable="true">rok</option>-->
+<!--              {% for buiding in list_complete %}-->
+<!--              <option>{{ building.year_Launch_services }}</option>-->
+<!--              {% endfor%}-->
+<!--          </select>-->
+<!--          <select>-->
+<!--            <option selected disable="true">deweloper</option>-->
+<!--              {% for buiding in list_complete %}-->
+<!--              <option>{{ building.developer }}</option>-->
+<!--              {% endfor%}-->
+<!--          </select>-->
+<!--                  <select>-->
+<!--            <option selected disable="true">status</option>-->
+<!--              {% for buiding in list_complete %}-->
+<!--              <option>{{ building.developer }}</option>-->
+<!--              {% endfor%}-->
+<!--          </select>-->
+
+<!--                  <select>-->
+<!--            <option selected disable="true">kosztorys</option>-->
+<!--              {% for buiding in list_complete %}-->
+<!--              <option>{{ building.developer }}</option>-->
+<!--              {% endfor%}-->
+<!--          </select>-->
+
+
+<!--        </div>-->
+        {% block content6 %}
+          {% for building in list_complete %}
+          <div class="building" data-status="{{ building.building_name }}">
+            <p> {{ forloop.counter }} | {{ building.KI_number }} |
+                {{ building.building_name }} |
+                {{ building.building_adres }} |
+                {{ building.quantity_HP }} |
+                {{ building.quantity_LU }} |
+                {{ building.GPON_node_localisation }} |
+                {{ building.year_Launch_services }} |
+                {{ building.status }} |
+                {{ estimated_budget_accept }} |
+<!--                {{ building.kind_of_inhabitation}} |-->
+<!--                {{ building.services_provided}} |-->
+                {{ building.developer}} |
+
+                <a href="edit_building/{{ building.id }}"><button >szczegóły osiedla / edytuj dane</button></a>
+            </p>
+          </div>
+
+          {% endfor %}
+        {% endblock %}
+    <div class="sum">
+        {% block content %}
+        <p>tu będzie wyświetlana suma HP i LU </p>
+        {% endblock %}
+    </div>
+</div>
+
+<div class="col-12 col-xl-3">
+    {% block content7 %} <img src="static/malbork.jpeg" alt="osiedleSM">
+    <p>kliknij w osiedle po lewej stronie a wyświetlony zostanie widok szczegółowy</p> {% endblock %}
+</div>
+
+
+
+{% endblock %}
+

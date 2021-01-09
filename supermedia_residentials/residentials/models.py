@@ -62,7 +62,7 @@ class Buildings(models.Model):
     services_provided = models.IntegerField(choices=SERVICES, default=1) # sposób świadczenia usług
     MPK_number = models.CharField(max_length=10, default="brak MPK", null=True)  # unikatowy numer MPK osiedla
     MPK_number_sewerage = models.CharField(max_length=10, default="brak MPK", null=True)  # unikatowy numer MPK przyłącza
-    range_of_activity = models.ManyToManyField("Activities", null=True) # zakres budowy sieci
+    range_of_activity = models.ForeignKey("Activities", on_delete=models.CASCADE, null=True) # zakres budowy sieci
     internal_net_property = models.IntegerField(choices=INTERNAL, default=7) # własność sieci wewnętrznych
     remarks_of_MS = models.TextField(null=True) # uwagi MS
     remarks_of_AK = models.TextField(null=True) # uwagi AK
@@ -71,6 +71,9 @@ class Buildings(models.Model):
         return self.building_name
         return self.building.status
         return self.building.estimated_budget_accept
+
+    class Meta:
+        db_table = "residential_area"
 
 
 # klasa opisująca osoby zaangażowane w projekt osiedlowy, zarówno ze strony dewelopera, generalnego wykonawcy jaki i SM

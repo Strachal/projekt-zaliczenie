@@ -1,6 +1,9 @@
 body {
-    font-size: 20px;
+    font-size: 14px;
 }
+.font-small{
+    font-size: 14px;
+    }
 
 .header {
     width: 100%;

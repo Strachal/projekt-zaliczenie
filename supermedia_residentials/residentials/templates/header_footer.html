@@ -49,14 +49,19 @@
 </nav>
   </header>
 
-    <div class="container">
-      <div class="row">
-    {% block template %}
+    <div class="container-fluid">
 
+    <div class="row">
+    {% block filter %}
     dupa
+    {% endblock %}</div>
 
+
+    <div class="row">
+    {% block template %}
+    szablon potomny
     {% endblock %}
-       </div>
+    </div>
     </div>
 
 
